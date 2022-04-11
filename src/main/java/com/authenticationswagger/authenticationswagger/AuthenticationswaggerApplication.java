@@ -32,8 +32,5 @@ public class AuthenticationswaggerApplication {
 			userService.saveRole(new Role(null, "ROLE_USER"));
 			userService.saveRole(new Role(null, "ROLE_ADMIN"));
 		};
-
-
-
 	}
 }

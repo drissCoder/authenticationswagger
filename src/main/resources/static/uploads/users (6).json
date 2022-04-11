@@ -37,10 +37,6 @@
 		"roles": [
 			{
 				"id": null,
-				"roleName": "ROLE_ADMIN"
-			},
-			{
-				"id": null,
 				"roleName": "ROLE_USER"
 			}
 		]

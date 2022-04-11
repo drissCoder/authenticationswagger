@@ -21,6 +21,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	UserDetailsServiceImpl userDetailsService;
 	@Autowired
 	private AuthEntryPointJwt unauthorizedHandler;
+	@Autowired
+	AccessDeniedHandler accessDeniedHandler;
 	@Bean
 	public AuthTokenFilter authenticationJwtTokenFilter() {
 		return new AuthTokenFilter();
@@ -42,7 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable();
 		http.headers().frameOptions().disable();
-		http.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+		http.exceptionHandling().accessDeniedHandler(accessDeniedHandler).authenticationEntryPoint(unauthorizedHandler).and()
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 			.authorizeRequests().antMatchers("/swagger-ui/**", "/swagger-ui.html/**", "/h2-console/**", "/cierstechnologies-openapi/**","/api/**").permitAll()
 			//.antMatchers("/api/test/**").permitAll()

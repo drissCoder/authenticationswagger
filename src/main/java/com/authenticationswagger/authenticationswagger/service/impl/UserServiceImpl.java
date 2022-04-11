@@ -110,7 +110,6 @@ public class UserServiceImpl implements UserService {
 			user.setUsername(firstName.toLowerCase() + "." + lastName.toLowerCase());
 			user.setEmail(firstName.toLowerCase() + "." + lastName.toLowerCase() + "@gmail.com");
 			user.setPassword(RandomString.make(new Random().nextInt(10 - 6) + 6));
-			user.getRoles().add(new Role(null,"ROLE_USER"));
 			if(i % 2 == 0) {
 				user.getRoles().add(new Role(null,"ROLE_ADMIN"));
 				

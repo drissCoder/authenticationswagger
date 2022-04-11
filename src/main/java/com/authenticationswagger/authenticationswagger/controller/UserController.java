@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,25 +133,14 @@ public class UserController {
 	@RequestMapping(value = "/users/me", method = RequestMethod.GET)
 	public ResponseEntity<?> consulterMonPofil()
 	{
-		
-		 //System.out.println(authentication.getName());
-		System.out.println(	SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		return ResponseEntity.ok(userDetailsService.loadUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
 	}
 	
 	@SecurityRequirement(name = "Authorization")
 	@RequestMapping(value = "/users/{username}", method = RequestMethod.GET)
-	//@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<?> consulterProfil(@PathVariable("username") final String username) throws Exception
-	{
-		UserDetails details = userDetailsService.loadUserByUsername(username);
-	    if (details != null && details.getAuthorities().stream()
-	      .anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
-	    	System.out.println(	SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-			return ResponseEntity.ok(userDetailsService.loadUserByUsername(username)); 
-	    }
-	    
-	    return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Unauthorized : 403 You don't have permission");
-		
+	{	
+		 return ResponseEntity.ok(userDetailsService.loadUserByUsername(username)); 		
 	}
 }
