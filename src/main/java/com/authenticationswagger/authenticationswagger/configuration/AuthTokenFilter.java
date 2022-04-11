@@ -35,11 +35,6 @@ public class AuthTokenFilter extends OncePerRequestFilter {
         String username = jwtUtils.getUserNameFromJwtToken(jwt);
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        userDetails.getAuthorities().forEach(System.out::println);
-	    /*if (userDetails != null && userDetails.getAuthorities().stream()
-	      .anyMatch(a -> !a.getAuthority().equals("ROLE_ADMIN"))) {
-	    	throw new ServletException("bbb");
-	    }*/
         UsernamePasswordAuthenticationToken authentication =
             new UsernamePasswordAuthenticationToken(
                 userDetails,
