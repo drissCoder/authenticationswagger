@@ -1,0 +1,48 @@
+[
+	{
+		"id": null,
+		"firstName": "Julian",
+		"lastName": "Barrows",
+		"birthDate": "2001-03-03",
+		"city": "East Tania",
+		"country": "Holy See (Vatican City State)",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/creartinc/128.jpg",
+		"company": "Rutherford Inc",
+		"jobPosition": "Architect",
+		"mobile": "(037) 599-4227",
+		"username": "julian.barrows",
+		"email": "julian.barrows@gmail.com",
+		"password": "NE1uUQLf",
+		"roles": [
+			{
+				"id": null,
+				"roleName": "ROLE_ADMIN"
+			}
+		]
+	},
+	{
+		"id": null,
+		"firstName": "Theo",
+		"lastName": "Shanahan",
+		"birthDate": "1973-03-28",
+		"city": "North Sam",
+		"country": "Saint Kitts and Nevis",
+		"avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/danvernon/128.jpg",
+		"company": "Ward LLC",
+		"jobPosition": "Representative",
+		"mobile": "310-783-8952 x0687",
+		"username": "theo.shanahan",
+		"email": "theo.shanahan@gmail.com",
+		"password": "uoKn0O6dh",
+		"roles": [
+			{
+				"id": null,
+				"roleName": "ROLE_ADMIN"
+			},
+			{
+				"id": null,
+				"roleName": "ROLE_USER"
+			}
+		]
+	}
+]
